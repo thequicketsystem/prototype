@@ -7,7 +7,6 @@ import cv2
 from math import sqrt
 
 # SETUP
-# ily preston xoxo
 
 ## THERMAL IMAGING SETUP
 IMG_WIDTH, IMG_HEIGHT = 32, 24
