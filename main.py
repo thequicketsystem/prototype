@@ -1,4 +1,5 @@
 import thermal
+import error_signaling
 
 def main() -> None:
     while True:
