@@ -38,3 +38,5 @@ def main() -> None:
                 placeholder_error_signal()
 
             print("Successful loop")
+
+main()
