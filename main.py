@@ -5,6 +5,9 @@ def placeholder_database_and_rfid_stuff() -> int:
     return 2
 
 def main() -> None:
+
+    input("Press enter to start")
+
     while True:
         people_inside_range, people_outside_range = thermal.get_frame_data()
 
