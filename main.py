@@ -1,6 +1,7 @@
 import thermal
 import error_signaling
 import rfid_reader
+import database
 
 def placeholder_database_check(tags) -> int:
     return 0
