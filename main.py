@@ -1,4 +1,4 @@
-import thermal
+#import thermal
 import error_signaling
 import rfid_reader
 import database
