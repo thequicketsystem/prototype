@@ -3,8 +3,8 @@
 import rfid_reader
 #import database
 
-def placeholder_database_check(tags) -> int:
-    return 0
+def placeholder_database_check(tags) -> bool:
+    return True
 
 def placeholder_error_signal() -> None:
     pass
@@ -31,10 +31,10 @@ def main() -> None:
             if len(tags) != people_inside_range:
                 print("Error Detected, tags != people inside range!")
                 #error_signaling.errorFlash()
-                placeholder_error_signal
+                placeholder_error_signal()
             if placeholder_database_check(tags):
                 print("Error Detected, tags invalid or used!")
                 #error_signaling.errorFlash()
-                placeholder_error_signal
+                placeholder_error_signal()
 
             print("Successful loop")
