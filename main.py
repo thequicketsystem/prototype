@@ -25,7 +25,7 @@ def main() -> None:
             tags = rfid_reader.call_reader()
             print(f"Tags detected: {tags}")
             #if len(tags) != people_inside_range or not placeholder_database_check(tags):
-            if len(tags) != people_inside_range
+            if len(tags) != people_inside_range:
                 print("Error Detected, tags != people inside range!")
                 error_signaling.errorFlash()
             if placeholder_database_check(tags):
