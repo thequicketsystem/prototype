@@ -60,7 +60,7 @@ def get_frame_data() -> tuple:
     try:
         mlx.getFrame(f)
     except ValueError:
-        continue
+        pass
 
     #TODO: Test the numpy-reshape branch solution here (ONLY AFTER EVERYTHING ELSE WORKS!!)
     for y in range(IMG_HEIGHT):
