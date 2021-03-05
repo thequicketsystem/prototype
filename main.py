@@ -38,6 +38,3 @@ def main() -> None:
                 placeholder_error_signal
 
             print("Successful loop")
-
-if '__name__' == '__main__':
-    main()
