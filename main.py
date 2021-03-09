@@ -2,6 +2,7 @@
 #import error_signaling
 import rfid_reader
 #import database
+from time import sleep
 
 def placeholder_database_check(tags) -> bool:
     return True
@@ -37,6 +38,7 @@ def main() -> None:
                 #error_signaling.errorFlash()
                 placeholder_error_signal()
 
+            sleep(2)
             print("Successful loop")
 
 main()
