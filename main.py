@@ -13,6 +13,9 @@ def main() -> None:
     input("Press enter to start")
 
     print("Start of main loop")
+
+    error_signaling.setGreen()
+
     while True:
         print("Getting Thermal data")
         #people_inside_range, people_outside_range = thermal.get_frame_data()
