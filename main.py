@@ -1,7 +1,7 @@
-#import thermal
-#import error_signaling
-import rfid_reader
-#import database
+#import lib.thermal
+#import lib.error_signaling
+import lib.rfid_reader
+#import lib.database
 from time import sleep
 
 def placeholder_database_check(tags) -> bool:
