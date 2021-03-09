@@ -28,11 +28,9 @@ def main() -> None:
             #if len(tags) != people_inside_range or not placeholder_database_check(tags):
             if len(tags) != people_inside_range:
                 print("Error Detected, tags != people inside range!")
-                #error_signaling.errorFlash()
                 error_signaling.errorFlash()
-            if placeholder_database_check(tags):
+            if not placeholder_database_check(tags):
                 print("Error Detected, tags invalid or used!")
-                #error_signaling.errorFlash()
                 error_signaling.errorFlash()
 
             sleep(2)
