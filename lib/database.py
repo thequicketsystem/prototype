@@ -42,7 +42,7 @@ def readTicket(incomingID: str) -> bool:
     conn.close()
     return result
 
-def readTicketList(incomingIDs: list) -> None:
+def readTicketList(incomingIDs: list) -> list:
     results = []
     for each in incomingIDs:
         results.append(readTicket(each))
