@@ -1,5 +1,6 @@
 import board
 import neopixel
+from time import sleep
 
 # our strip has 60 LEDs
 NUM_PIXELS = 60
