@@ -10,33 +10,30 @@ def placeholder_database_check(tags) -> bool:
 def main() -> None:
     tags = []
 
-    input("Press enter to start")
-
     print("Start of main loop")
 
     error_signaling.setGreen()
 
     while True:
+
+        db_check = input("Pass database check y/n: ").lower() == 'y'
+        people_inside_range = int(input("Number of people inside range: "))
+
         print("Getting Thermal data")
         #people_inside_range, people_outside_range = thermal.get_frame_data()
-        people_inside_range = 2
-        people_outside_range = 2
 
-        print(f"People inside range: {people_inside_range}\nPeople outside range: {people_outside_range}")
+        print(f"People inside range: {people_inside_range}")
 
         if people_inside_range > 0:
             print("People detected")
             tags = rfid_reader.call_reader()
             print(f"Tags detected: {tags}")
-            #if len(tags) != people_inside_range or not placeholder_database_check(tags):
-            if len(tags) != people_inside_range:
-                print("Error Detected, tags != people inside range!")
+            #if len(tags) == people_inside_range and placeholder_database_check(tags):
+            if len(tags) == people_inside_range and db_check:
+                sleep(2)
+                print("Successful loop!\n")
+            else:
+                print("Error detected\n")
                 error_signaling.errorFlash()
-            if not placeholder_database_check(tags):
-                print("Error Detected, tags invalid or used!")
-                error_signaling.errorFlash()
-
-            sleep(2)
-            print("Successful loop")
 
 main()
