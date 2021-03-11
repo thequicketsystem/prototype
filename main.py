@@ -14,7 +14,7 @@ def main() -> None:
         people_inside_range = int(input("Number of people inside range: "))
 
         print("Getting Thermal data")
-        #people_inside_range, people_outside_range = thermal.get_frame_data()
+        #people_count = thermal.get_frame_data()
 
         print(f"People inside range: {people_inside_range}")
 
@@ -22,8 +22,8 @@ def main() -> None:
             print("People detected")
             tags = rfid_reader.call_reader()
             print(f"Tags detected: {tags}")
-            #if len(tags) == people_inside_range and readTicketList(tags):
-            if len(tags) == people_inside_range and db_check:
+            #if len(tags) == people_count and readTicketList(tags):
+            if len(tags) == people_count and db_check:
                 sleep(2)
                 print("Successful loop!\n")
             else:
