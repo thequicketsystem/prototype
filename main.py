@@ -10,16 +10,13 @@ def main() -> None:
     error_signaling.setGreen()
 
     while True:
-
-        print("Getting Thermal data")
         people_count = thermal.get_frame_data()
 
         print(f"People count: {people_count}")
 
         if people_count > 0:
-            print("People detected")
             tags = rfid_reader.call_reader()
-            print(f"Tags detected: {tags}")
+            print(f"People detected, read tags: {tags}")
             
             if len(tags) != people_count:
                 print(f"Error detected: Number of tags does not match number of people!")

@@ -1,11 +1,5 @@
 import board
 import neopixel
-from time import sleep
-
-DEBUG = False
-
-if DEBUG:
-	from time import time
 
 # our strip has 60 LEDs
 NUM_PIXELS = 60
@@ -38,14 +32,7 @@ def errorFlash():
 	__pulse(RED)
 	__pulse(RED)
 
-	if DEBUG:
-		start = time()
-
 	pixels.fill(RED)
 	sleep(LONG_DELAY)
-
-	if DEBUG:
-		end = time()
-		print(end - start)
 
 	setGreen()
