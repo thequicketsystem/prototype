@@ -3,7 +3,6 @@ import busio
 import adafruit_mlx90640
 import numpy as np
 import cv2
-from math import sqrt
 
 # Sources:
 # https://answers.opencv.org/question/210645/detection-of-people-from-above-with-thermal-camera/
@@ -15,17 +14,13 @@ TEMP_MIN, TEMP_MAX = 6, 20
 
 SCALE_FACTOR = 10
 
-# set up circle dimesions to simulate RFID reader detection area
-circleR  = (IMG_WIDTH * SCALE_FACTOR) // 4
-circleX, circleY = (IMG_WIDTH * SCALE_FACTOR) // 2, (IMG_HEIGHT * SCALE_FACTOR)  // 2
-
 i2c = busio.I2C(board.SCL, board.SDA, frequency=800000)
 mlx = adafruit_mlx90640.MLX90640(i2c)
 mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_2_HZ
 
 f = [0] * (IMG_WIDTH * IMG_HEIGHT)
 
-while True:
+def get_frame_data() -> int:
     #temp_data = np.empty([IMG_WIDTH, IMG_HEIGHT])
 
     try:
