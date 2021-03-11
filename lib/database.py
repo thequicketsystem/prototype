@@ -15,7 +15,6 @@ def helloDB():
         
     return conn
 
-#function to read single ticket
 def readTicket(incomingID: str) -> bool:
     conn = helloDB()
     cur = conn.cursor()
@@ -26,7 +25,6 @@ def readTicket(incomingID: str) -> bool:
         cur.execute("SELECT used FROM guests WHERE ticketID=%s;", (incomingID,))
         result = cur.fetchall()[0][0]
         if result == 0:
-            #working - sets used bit to 1
             cur.execute("UPDATE guests SET used=1 WHERE ticketID=%s;", (incomingID,))
             conn.commit()
             result = True
