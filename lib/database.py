@@ -19,6 +19,8 @@ def helloDB():
 def readTicket(incomingID: str) -> bool:
     conn = helloDB()
     cur = conn.cursor()
+
+    result = None
     
     try:
         cur.execute("SELECT used FROM guests WHERE ticketID=%s;", (incomingID,))
@@ -27,15 +29,18 @@ def readTicket(incomingID: str) -> bool:
             #working - sets used bit to 1
             cur.execute("UPDATE guests SET used=1 WHERE ticketID=%s;", (incomingID,))
             conn.commit()
-            return True
+            result = True
 
         else:
-            return False
+            result = False
+
     except mariadb.Error as e:
         print(f"Error updating ticket: {e}")
+        conn.close()
         sys.exit(1)
 
     conn.close()
+    return result
 
 def readTicketList(incomingIDs: list) -> None:
     results = []
