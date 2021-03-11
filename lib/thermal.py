@@ -18,6 +18,9 @@ i2c = busio.I2C(board.SCL, board.SDA, frequency=800000)
 mlx = adafruit_mlx90640.MLX90640(i2c)
 mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_2_HZ
 
+## Blob detection parameters
+params = cv2.SimpleBlobDetector_Params()
+
 # Change thresholds
 params.minThreshold = 0;
 params.maxThreshold = 255;
