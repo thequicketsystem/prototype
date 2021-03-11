@@ -22,7 +22,7 @@ def main() -> None:
             print("People detected")
             tags = rfid_reader.call_reader()
             print(f"Tags detected: {tags}")
-            #if len(tags) == people_inside_range and placeholder_database_check(tags):
+            #if len(tags) == people_inside_range and readTicketList(tags):
             if len(tags) == people_inside_range and db_check:
                 sleep(2)
                 print("Successful loop!\n")
