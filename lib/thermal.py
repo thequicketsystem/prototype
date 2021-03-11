@@ -18,6 +18,23 @@ i2c = busio.I2C(board.SCL, board.SDA, frequency=800000)
 mlx = adafruit_mlx90640.MLX90640(i2c)
 mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_2_HZ
 
+# Change thresholds
+params.minThreshold = 0;
+params.maxThreshold = 255;
+
+# Filter by Area.
+params.filterByArea = True
+params.minArea = 750
+params.maxArea = 8000
+
+# Filter by Circularity
+params.filterByCircularity = True
+params.minCircularity = 0.1
+
+# Filter by Inertia
+params.filterByInertia = True
+params.minInertiaRatio = 0.01
+
 f = [0] * (IMG_WIDTH * IMG_HEIGHT)
 
 def get_frame_data() -> int:
@@ -26,7 +43,7 @@ def get_frame_data() -> int:
     try:
         mlx.getFrame(f)
     except ValueError:
-        continue
+        pass
 
     #for y in range(IMG_HEIGHT):
     #    for x in range(IMG_WIDTH):
@@ -48,23 +65,6 @@ def get_frame_data() -> int:
 
     temp_data = cv2.bitwise_not(temp_data)
 
-    # Change thresholds
-    params.minThreshold = 0;
-    params.maxThreshold = 255;
-
-    # Filter by Area.
-    params.filterByArea = True
-    params.minArea = 750
-    params.maxArea = 8000
-
-    # Filter by Circularity
-    params.filterByCircularity = True
-    params.minCircularity = 0.1
-    
-    # Filter by Inertia
-    params.filterByInertia = True
-    params.minInertiaRatio = 0.01
-    
     detector = cv2.SimpleBlobDetector_create(params)
 
     keypoints = detector.detect(temp_data)
