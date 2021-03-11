@@ -2,7 +2,7 @@ import board
 import neopixel
 from time import sleep
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
 	from time import time
