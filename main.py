@@ -20,13 +20,16 @@ def main() -> None:
             print("People detected")
             tags = rfid_reader.call_reader()
             print(f"Tags detected: {tags}")
-            # Right now this is inefficient but later we will probably use the
-            #  list from readTicketList() to determine *which* tag is invalid 
-            if len(tags) == people_count and all(x == True for x in database.readTicketList(tags)):
-                print("Successful loop!\n")
-                sleep(2)
-            else:
-                print("Error detected\n")
+            
+            if len(tags) != people_count:
+                print(f"Error detected: Number of tags does not match number of people!")
                 error_signaling.errorFlash()
+            
+            if any(x == False for x in database.readTicketList(tags)):
+                print(f"Error detected: Invalid tag!")
+                error_signaling.errorFlash()
+                
+            else:
+                print("Successful loop!\n")
 
 main()
