@@ -4,18 +4,12 @@ import lib.rfid_reader as rfid_reader
 #import lib.database as database
 from time import sleep
 
-def placeholder_database_check(tags) -> bool:
-    return True
-
 def main() -> None:
     tags = []
-
-    print("Start of main loop")
 
     error_signaling.setGreen()
 
     while True:
-
         db_check = input("Pass database check y/n: ").lower() == 'y'
         people_inside_range = int(input("Number of people inside range: "))
 
