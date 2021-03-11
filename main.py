@@ -23,7 +23,7 @@ def main() -> None:
                 error_signaling.errorFlash()
             
             if any(x == False for x in database.readTicketList(tags)):
-                print(f"Error detected: Invalid tag!")
+                print(f"Error detected: Invalid/Used tag!")
                 error_signaling.errorFlash()
                 
             else:
