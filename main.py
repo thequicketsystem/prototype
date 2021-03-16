@@ -10,7 +10,7 @@ def main() -> None:
     error_signaling.setGreen()
 
     while True:
-        people_count = thermal.get_frame_data()
+        people_count = thermal.get_best_of_three()
 
         print(f"People count: {people_count}")
 
