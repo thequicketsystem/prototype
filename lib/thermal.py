@@ -16,7 +16,7 @@ SCALE_FACTOR = 10
 
 i2c = busio.I2C(board.SCL, board.SDA, frequency=800000)
 mlx = adafruit_mlx90640.MLX90640(i2c)
-mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_64_HZ
+mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_16_HZ
 
 ## Blob detection parameters
 params = cv2.SimpleBlobDetector_Params()
@@ -27,8 +27,8 @@ params.maxThreshold = 255;
 
 # Filter by Area.
 params.filterByArea = True
-params.minArea = 400
-params.maxArea = 8000
+params.minArea = 600
+params.maxArea = 7000
 
 # Filter by Circularity
 params.filterByCircularity = True
