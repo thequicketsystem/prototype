@@ -73,3 +73,7 @@ def get_frame_data() -> int:
     keypoints = detector.detect(temp_data)
 
     return(len(keypoints))
+
+
+def get_best_of_x(x: int) -> int:
+    return max([get_frame_data() for i in range(x)])
