@@ -74,9 +74,6 @@ def get_frame_data() -> int:
 
     return(len(keypoints))
 
-def get_best_of_three() -> int:
-    result = []
-    for i in range(3):
-        result.append(get_frame_data())
-    
-    return max(result)
+
+def get_best_of_x(x: int) -> int:
+    return max([get_frame_data() for i in range(x)])
