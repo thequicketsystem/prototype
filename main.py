@@ -5,17 +5,20 @@ import lib.database as database
 from time import sleep
 from concurrent.futures import ProcessPoolExecutor
 
+def get_best_of_five() -> int:
+  return thermal.get_best_of_x(5)
+
 def main() -> None:
     tags = []
 
     error_signaling.setGreen()
 
     with ProcessPoolExecutor(max_workers=1) as executor:
-        frame_data_future = executor.submit(thermal.get_best_of_three)
-
+        frame_data_future = executor.submit(get_best_of_five)
+        
         while True:
             people_count = frame_data_future.result()
-            executor.submit(thermal.get_best_of_three)
+            executor.submit(get_best_of_five)
             print(f"People count: {people_count}")
 
             if people_count > 0:

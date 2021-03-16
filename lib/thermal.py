@@ -48,10 +48,6 @@ def get_frame_data() -> int:
     except ValueError:
         pass
 
-    #for y in range(IMG_HEIGHT):
-    #    for x in range(IMG_WIDTH):
-    #        temp_data[x, y] = f[y * IMG_WIDTH + x]
-    
     temp_data = np.array(f).reshape((IMG_HEIGHT, IMG_WIDTH))
 
     temp_data = cv2.resize(temp_data, dsize=(IMG_WIDTH * SCALE_FACTOR, IMG_HEIGHT * SCALE_FACTOR))
@@ -74,5 +70,5 @@ def get_frame_data() -> int:
 
     return(len(keypoints))
 
-def get_best_of_three() -> int:
-    return max([get_frame_data() for i in range(3)])
+def get_best_of_x(x: int) -> int:
+    return max([get_frame_data() for i in range(x)])
