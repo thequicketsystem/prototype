@@ -35,8 +35,8 @@ params.filterByCircularity = True
 params.minCircularity = 0.1
 
 # Filter by Inertia
-#params.filterByInertia = True
-#params.minInertiaRatio = 0.01
+params.filterByInertia = True
+params.minInertiaRatio = 0.01
 
 f = [0] * (IMG_WIDTH * IMG_HEIGHT)
 
