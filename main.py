@@ -10,8 +10,6 @@ def main() -> None:
     error_signaling.setGreen()
 
     while True:
-        _ = input("Press enter to start cycle.")
-
         people_count = thermal.get_best_of_x(10)
 
         print(f"People count: {people_count}")
