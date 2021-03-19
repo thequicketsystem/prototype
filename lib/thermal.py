@@ -41,8 +41,6 @@ params.minInertiaRatio = 0.01
 f = [0] * (IMG_WIDTH * IMG_HEIGHT)
 
 def get_frame_data() -> int:
-    #temp_data = np.empty([IMG_WIDTH, IMG_HEIGHT])
-
     try:
         mlx.getFrame(f)
     except ValueError:
