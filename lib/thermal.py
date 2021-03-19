@@ -27,7 +27,7 @@ params.maxThreshold = 255;
 
 # Filter by Area.
 params.filterByArea = True
-params.minArea = 1000
+params.minArea = 600
 params.maxArea = 7000
 
 # Filter by Circularity
@@ -35,8 +35,8 @@ params.filterByCircularity = True
 params.minCircularity = 0.1
 
 # Filter by Inertia
-params.filterByInertia = True
-params.minInertiaRatio = 0.01
+#params.filterByInertia = True
+#params.minInertiaRatio = 0.01
 
 f = [0] * (IMG_WIDTH * IMG_HEIGHT)
 
