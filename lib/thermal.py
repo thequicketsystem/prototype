@@ -48,10 +48,6 @@ def get_frame_data() -> int:
     except ValueError:
         pass
 
-    #for y in range(IMG_HEIGHT):
-    #    for x in range(IMG_WIDTH):
-    #        temp_data[x, y] = f[y * IMG_WIDTH + x]
-    
     temp_data = np.array(f).reshape((IMG_HEIGHT, IMG_WIDTH))
 
     temp_data = cv2.resize(temp_data, dsize=(IMG_WIDTH * SCALE_FACTOR, IMG_HEIGHT * SCALE_FACTOR))
@@ -72,8 +68,17 @@ def get_frame_data() -> int:
 
     keypoints = detector.detect(temp_data)
 
-    return(len(keypoints))
+    count = len(keypoints)
 
+    # Draw circles around blobs and display count on screen
+    temp_data_with_keypoints = cv2.drawKeypoints(temp_data, keypoints, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+    # Draw count of blobs inside circle and outside circle, as well as the circle itself
+    cv2.putText(temp_data_with_keypoints, f"count: {count}", (10, (IMG_HEIGHT * SCALE_FACTOR) - 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+    cv2.imshow("The Quicket System Demo", temp_data_with_keypoints)
+    cv2.waitKey(1)
+
+    return(count)
 
 def get_best_of_x(x: int) -> int:
     return max([get_frame_data() for i in range(x)])
