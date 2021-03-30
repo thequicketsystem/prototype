@@ -10,7 +10,7 @@ def main() -> None:
     error_signaling.setGreen()
 
     while True:
-        people_count = thermal.get_best_of_x(8)
+        people_count = thermal.get_best_of_x(16)
 
         print(f"People count: {people_count}")
 
