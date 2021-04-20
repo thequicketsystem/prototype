@@ -4,13 +4,15 @@ import lib.rfid_reader as rfid_reader
 import lib.database as database
 from time import sleep
 
+THERMAL_INTERVAL = 16
+
 def main() -> None:
     tags = []
 
     error_signaling.setGreen()
 
     while True:
-        people_count = thermal.get_best_of_x(8)
+        people_count = thermal.get_frame_data(THERMAL_INTERVAL)
 
         print(f"People count: {people_count}")
 
