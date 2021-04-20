@@ -25,9 +25,10 @@ def main() -> None:
                 print(f"Error detected: Number of tags does not match number of people!")
                 error_signaling.errorFlash()
             
-            if any(x == False for x in database.readTicketList(tags)):
+            elif any(x == False for x in database.readTicketList(tags)):
                 print(f"Error detected: Invalid/Used tag!")
                 error_signaling.errorFlash()
+
                 
             else:
                 print("Successful loop!\n")
