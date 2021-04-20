@@ -17,6 +17,7 @@ def main() -> None:
         print(f"People count: {people_count}")
 
         if people_count > 0:
+            print("Calling rfid reader")
             tags = rfid_reader.call_reader()
             print(f"People detected, read tags: {tags}")
             
