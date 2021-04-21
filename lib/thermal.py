@@ -121,7 +121,7 @@ def get_frame_data() -> int:
         # Determine "quadrants" (only two quads for now) of keypoints
         pts = cv2.KeyPoint_convert(keypoints)
         for point in pts:
-            if point[0] < QUAD_SEP:
+            if point[1] < QUAD_SEP:
                 left_data += 1
             else:
                 right_data += 1
