@@ -21,14 +21,7 @@ SCALED_WIDTH, SCALED_HEIGHT = IMG_WIDTH * SCALE_FACTOR, IMG_HEIGHT * SCALE_FACTO
 
 MIN_TEMP = 30
 
-# yeah i know they aren't quadrants if there's only two `but we'll get to that. . . maybe
-QUAD_SEP = (IMG_WIDTH * SCALE_FACTOR) // 2
-
-# no magic numbers
-BOTTOM_QUAD_INDEX = 0
-TOP_QUAD_INDEX = 1
-
-# TOP IS RIGHT LEFT IS BOTTOM
+SEP = (IMG_WIDTH * SCALE_FACTOR) // 2
 
 POLLING_FRAMES_LENGTH = 4
 EXTENSION_LENGTH = 8
@@ -97,7 +90,6 @@ def get_frame_data() -> int:
 
         temp_data = cv2.bitwise_not(temp_data)
 
-
         temp_data_top, temp_data_bottom = temp_data[:,:SCALED_HEIGHT], temp_data[:,SCALED_HEIGHT:]
         
         keypoints = []
@@ -117,10 +109,9 @@ def get_frame_data() -> int:
             frames += EXTENSION_LENGTH
             is_ext = True
 
-        # Determine "quadrants" (only two quads for now) of keypoints
         pts = cv2.KeyPoint_convert(keypoints)
         for point in pts:
-            if point[1] < QUAD_SEP:
+            if point[1] < SEP:
                 top_data += 1
             else:
                 bottom_data += 1
