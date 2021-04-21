@@ -32,7 +32,7 @@ RIGHT_QUAD_INDEX = 1
 # on-screen, the the seperator will appear to be along the x axis ("top" and "bottom")
 
 POLLING_FRAMES_LENGTH = 8
-EXTENSION_LENGTH = 12
+EXTENSION_LENGTH = 8
 
 CONFIDENCE_THRESHOLD = 1
 
@@ -65,9 +65,9 @@ params.minInertiaRatio = 0.01
 detectors = [cv2.SimpleBlobDetector_create(params) for i in range(2)]
 
 # TODO: Major cleanup/un-spaghettification needed if this does actually work
-def get_frame_data(start_frames: int) -> int:
+def get_frame_data() -> int:
 
-    frames = start_frames
+    frames = POLLING_FRAMES_LENGTH
     is_ext = False
 
     left_data, right_data = 0, 0
