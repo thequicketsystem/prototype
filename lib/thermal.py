@@ -31,7 +31,7 @@ RIGHT_QUAD_INDEX = 1
 # We use "left" and "right" relative to the orientation of the virutal gate. 
 # on-screen, the the seperator will appear to be along the x axis ("top" and "bottom")
 
-POLLING_FRAMES_LENGTH = 8
+POLLING_FRAMES_LENGTH = 4
 EXTENSION_LENGTH = 8
 
 CONFIDENCE_THRESHOLD = 0
